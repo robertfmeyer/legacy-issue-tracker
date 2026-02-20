@@ -1,0 +1,6 @@
+# filename: legacy_app/requirements.txt
+fastapi
+uvicorn
+pydantic
+pytest
+httpx
