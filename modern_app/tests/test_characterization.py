@@ -61,3 +61,23 @@ def test_filter_by_priority():
     response = client.get("/issues?priority=high")
     assert response.status_code == 200
     assert len(response.json()) >= 1
+
+
+def test_repeated_get_returns_same_issue():
+    create = client.post(
+        "/issues",
+        json={
+            "title": "Cache test",
+            "description": "Testing",
+            "priority": "medium",
+            "status": "open",
+            "assignee": None
+        },
+    )
+    issue_id = create.json()["id"]
+
+    first = client.get(f"/issues/{issue_id}").json()
+    second = client.get(f"/issues/{issue_id}").json()
+
+    assert first["id"] == second["id"]
+    assert first["title"] == second["title"]
