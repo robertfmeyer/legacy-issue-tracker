@@ -1,0 +1,6 @@
+# filename: modern_app/requirements.txt
+fastapi
+uvicorn
+pydantic
+pytest
+httpx
