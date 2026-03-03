@@ -1,9 +1,7 @@
 # filename: modern_app/tests/test_characterization.py
 from fastapi.testclient import TestClient
-# filename: modern_app/tests/test_characterization.py
 from modern_app.app.main import app
-
-from legacy_app.app import app
+#from legacy_app.app import app
 
 client = TestClient(app)
 
